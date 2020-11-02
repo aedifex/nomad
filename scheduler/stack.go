@@ -1,7 +1,6 @@
 package scheduler
 
 import (
-	"fmt"
 	"math"
 	"time"
 
@@ -271,8 +270,8 @@ func NewSystemStack(sysbatch bool, ctx Context) *SystemStack {
 			enablePreemption = schedConfig.PreemptionConfig.SystemSchedulerEnabled
 		}
 	}
-	fmt.Println("enable Preemption:", enablePreemption)
 
+	// Create binpack iterator
 	s.binPack = NewBinPackIterator(ctx, rankSource, enablePreemption, 0, schedulerAlgorithm)
 
 	// Apply score normalization

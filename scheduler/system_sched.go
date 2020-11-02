@@ -23,7 +23,7 @@ const (
 // SystemScheduler is used for 'system' and 'sysbatch' jobs. This scheduler is
 // designed for jobs that should be run on every client. The 'system' mode
 // will ensure those jobs continuously run regardless of successful task exits,
-// whereas 'sysbatch' marks the task complete on success.
+// whereas 'sysbatch' considers the task complete on success.
 type SystemScheduler struct {
 	logger   log.Logger
 	state    State

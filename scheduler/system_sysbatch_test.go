@@ -1186,12 +1186,12 @@ func TestSysBatch_PlanWithDrainedNode(t *testing.T) {
 	node := mock.Node()
 	node.NodeClass = "green"
 	node.Drain = true
-	node.ComputeClass()
+	require.NoError(t, node.ComputeClass())
 	require.NoError(t, h.State.UpsertNode(structs.MsgTypeTestSetup, h.NextIndex(), node))
 
 	node2 := mock.Node()
 	node2.NodeClass = "blue"
-	node2.ComputeClass()
+	require.NoError(t, node2.ComputeClass())
 	require.NoError(t, h.State.UpsertNode(structs.MsgTypeTestSetup, h.NextIndex(), node2))
 
 	// Create a sysbatch job with two task groups, each constrained on node class
