@@ -1481,18 +1481,18 @@ workflows:
             - /^docs-.*/
             - /^e2e-.*/
             - stable-website
-  website:
-    jobs:
-    - website-docker-image:
-        filters:
-          branches:
-            only:
-            - master
-        context: static-sites
-    - algolia_index:
-        filters:
-          branches:
-            only:
-            - stable-website
-        context: static-sites
+  # website:
+  #   jobs:
+  #   - website-docker-image:
+  #       filters:
+  #         branches:
+  #           only:
+  #           - master
+  #       context: static-sites
+  #   - algolia_index:
+  #       filters:
+  #         branches:
+  #           only:
+  #           - stable-website
+  #       context: static-sites
   version: 2
